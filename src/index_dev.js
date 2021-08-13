@@ -8,8 +8,6 @@ async function getCoordPollution (lat, lon) {
     let result = await response.json();
     let city = result.data.city;
     alert(city.name);
-    // coordInput[0].value = '';
-    // coordInput[1].value = '';
   } else {
     console.log(`Error ${response.status}: ${response.message}`);
   }

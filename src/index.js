@@ -1,5 +1,8 @@
 const API_KEY = process.env.API_KEY;
 import _ from 'lodash';
+import 'bootstrap';
+import 'jquery';
+import './style.css';
 let coordInput = document.getElementsByTagName('input');
 
 //add fetch data handler
@@ -21,7 +24,7 @@ async function getCoordPollution (lat, lon) {
   if(response.status == 200){
     let result = await response.json();
     await dataHandler(result);
-    //alert(city.name);
+    //alert(coordInput[2].value);
     console.log(result);
   } else {
     console.log(`Error ${response.status}: ${response.message}`);
@@ -59,10 +62,10 @@ getLocalCoords.onclick = async function getCoord(){
   let longitude;
   function success (pos) {
    let crd = pos.coords;
-   coordInput[0].value = `${crd.latitude}`;
-   coordInput[1].value = `${crd.longitude}`;
-   latitude = coordInput[0].value;
-   longitude = coordInput[1].value;
+   // coordInput[0].value = `${crd.latitude}`;
+   // coordInput[1].value = `${crd.longitude}`;
+   latitude = crd.latitude;
+   longitude = crd.longitude;
    getCoordPollution(latitude, longitude);
   };
   function error (err){

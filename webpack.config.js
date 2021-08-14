@@ -18,6 +18,14 @@ module.exports = (env, argv) => {
       contentBase: './build',
       open: true
     },
+    module: {
+  rules: [
+    {
+      test: /\.css$/i,
+      use: ["style-loader", "css-loader"],
+    },
+  ],
+},
     plugins: [
       new HtmlWebpackPlugin({
         title: "Pollution Forecast Project GT",

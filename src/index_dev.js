@@ -1,5 +1,8 @@
 const API_KEY = process.env.API_KEY;
 import _ from 'lodash';
+import bootstrap from 'bootstrap';
+import jquery from 'jquery';
+import css from './style.css';
 let coordInput = document.getElementsByTagName('input');
 
 //add fetch data handler
@@ -21,7 +24,7 @@ async function getCoordPollution (lat, lon) {
   if(response.status == 200){
     let result = await response.json();
     await dataHandler(result);
-    //alert(city.name);
+    alert(coordInput[2].value);
     console.log(result);
   } else {
     console.log(`Error ${response.status}: ${response.message}`);

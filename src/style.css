@@ -41,7 +41,16 @@ label {
   flex-direction: row;
   justify-content: space-around;
 }
-
+.coord-buttons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+.coord-buttons button {
+  width: 25%;
+  margin: 30px 15px;
+}
 button {
   width: 25%;
   padding: 10px;

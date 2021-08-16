@@ -19,13 +19,15 @@
         <input id="latitude" type="text" name="latitude" value="">
         <label for="longitude">Station Longitude</label>
         <input id="longitude" type="text" name="longitude" value="">
+        <span class="coord-buttons">
+          <button type="button" name="button" id="getLocalCoords">My coords</button>
+          <button type="button" name="button" id="getSomewhereCoords">Somewhere coords</button>
+        </span>
         <label for="city-name">Station name or city</label>
         <input id="city-selector" type="text" name="city-name" value="">
       </form>
       <div class="button-cont">
-        <button type="button" name="button" id="getLocalCoords">My coords</button>
         <button type="button" name="button" id="getCity">City infos</button>
-        <button type="button" name="button" id="getSomewhereCoords">Somewhere coords</button>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

@@ -29,7 +29,10 @@
   },
   "dependencies": {
     "bootstrap": "^5.1.0",
+    "file-loader": "^6.2.0",
     "jquery": "^3.6.0",
+    "leaflet": "^1.7.1",
+    "leaflet-loader": "^0.0.2",
     "lodash": "^4.17.21"
   }
 }

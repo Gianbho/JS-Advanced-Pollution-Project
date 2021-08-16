@@ -11,6 +11,12 @@
   flex-direction: column;
 }
 
+map {
+  height: 400px;
+  width: 60%;
+  margin: 0 auto;
+}
+
 .page-header {
   text-align: center;
   width: 100%;
@@ -20,39 +26,68 @@
   margin: 0 15px;
 }
 
-form {
+#input-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-input {
+#input-form input {
   text-align: center;
   width: 75%;
 }
 
-label {
+#input-form label {
   margin-top: 15px;
   text-align: center;
 }
 
-.button-cont {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+button {
+  width: 25%;
+  padding: 15px;
 }
-.coord-buttons {
+
+.coord-buttons-container {
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: center;
 }
-.coord-buttons button {
-  width: 25%;
-  margin: 30px 15px;
+
+.coord-buttons {
+  margin: 15px 15px;
 }
-button {
-  width: 25%;
-  padding: 10px;
-  margin-top: 30px;
+
+.city-button-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#getCity {
+  margin: 15px 0;
+}
+
+#output-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#output-form label{
+  width: 8%;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+#output-form input {
+  display: flex;
+  flex-wrap: wrap;
+  width: 22%;
+  margin-top: 20px;
+  margin-right: 15px;
+
+  text-align: center;
+  font-size: 20px;
 }

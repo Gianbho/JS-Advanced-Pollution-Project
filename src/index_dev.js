@@ -64,21 +64,21 @@ map.on('click', async function(e) {
     };
 });
 
-function invalidValues(n) {
-  coordInput[n].classList.add('input-error');
-  coordInput[n].value = 'Invalid value!';
-  coordInput[n].onfocus = () => {
-    coordInput[n].classList.remove('input-error');
-    if(coordInput[n].value == 'Invalid value!') coordInput[n].value = '';
+function invalidValues(input) {
+  input.classList.add('input-error');
+  input.value = 'Invalid value!';
+  input.onfocus = () => {
+    input.classList.remove('input-error');
+    if(input.value == 'Invalid value!') input.value = '';
   }
 }
 
-function emptyFields(input, n) {
-  input[n].classList.add('input-error');
-  input[n].value = 'Empty field!';
-  input[n].onfocus = () => {
-    input[n].classList.remove('input-error');
-    if(input[n].value == 'Empty field!') input[n].value = '';
+function emptyFields(input) {
+  input.classList.add('input-error');
+  input.value = 'Empty field!';
+  input.onfocus = () => {
+    input.classList.remove('input-error');
+    if(input.value == 'Empty field!') input.value = '';
  }
 }
 
@@ -135,7 +135,7 @@ let getCity = document.querySelector('#getCity');
 getCity.onclick = async () => {
   let city = cityInput.value;
   if (!city) {
-    emptyFields(cityInput, 0);
+    emptyFields(cityInput);
   } else {
     await getCityPollution(city);
     coordInput[0].value = '';
@@ -183,20 +183,20 @@ getSomewhereCoords.onclick = () => {
   let longitude = coordInput[1].value;
   if(!latitude || !longitude) {
     if(!latitude && !longitude) {
-      emptyFields(coordInput, 0);
-      emptyFields(coordInput, 1);
+      emptyFields(coordInput[0]);
+      emptyFields(coordInput[1]);
     } else if (!latitude){
-      emptyFields(coordInput, 0)
+      emptyFields(coordInput[0])
     } else if (!longitude) {
-      emptyFields(coordInput, 1);
+      emptyFields(coordInput[1]);
     }
   } else if ((+latitude > 90 || +latitude < -90) && (+longitude > 180 || +longitude < -180)) {
-    invalidValues(0);
-    invalidValues(1);
+    invalidValues(coordInput[0]);
+    invalidValues(coordInput[1]);
   } else if (+longitude > 180 || +longitude < -180) {
-    invalidValues(1);
+    invalidValues(coordInput[1]);
   } else if (+latitude > 90 || +latitude < -90) {
-    invalidValues(0);
+    invalidValues(coordInput[0]);
   } else {
     getCoordPollution(latitude, longitude);
   }

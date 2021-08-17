@@ -3,12 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 
 #wrapper {
   display: flex;
+  margin: 0 15px;
   width: 100%;
-  height: auto;
   flex-direction: column;
+}
+
+h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  align-self: center;
 }
 
 map {
@@ -34,7 +45,7 @@ map {
 
 #input-form input {
   text-align: center;
-  width: 75%;
+  width: 100%;
 }
 
 #input-form label {
@@ -72,22 +83,80 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  width: 90%;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 #output-form label{
-  width: 8%;
+  position: relative;
+  right: -20px;
+  width: 11%;
   margin-top: 20px;
   margin-right: 5px;
 }
 
 #output-form input {
-  display: flex;
-  flex-wrap: wrap;
-  width: 22%;
+  width: 30%;
   margin-top: 20px;
   margin-right: 15px;
 
   text-align: center;
   font-size: 20px;
+  padding: 0 5px;
+}
+
+/* fix */
+
+@media only screen and (min-width: 743px) and (max-width: 849px) {
+  #output-form label{
+    width: 13%;
+    margin-top: 20px;
+    margin-right: 5px;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 850px) {
+
+  #wrapper {
+    align-self: center;
+    width: 80%;
+  }
+
+  #output-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 75%;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  #output-form label{
+    position: inherit;
+    width: 8%;
+    margin-top: 20px;
+    margin-right: 5px;
+  }
+
+  #output-form input {
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    margin-top: 20px;
+    margin-right: 15px;
+
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.input-error {
+  border-color: red;
+  font-weight: bolder;
+  color: red;
+
 }

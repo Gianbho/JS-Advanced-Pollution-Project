@@ -2,6 +2,7 @@ const API_KEY = process.env.API_KEY;
 import _ from 'lodash';
 import 'bootstrap';
 import 'jquery';
+import $ from 'jquery';
 import './style.css';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -22,6 +23,7 @@ L.Icon.Default.mergeOptions({
 let coordInput = document.getElementById('input-form').elements;
 let cityInput = document.getElementById('city-selector');
 let dataOutputs = document.getElementById('output-form').elements;
+let dataParagraph = document.querySelector('#data-description');
 
 let leafletMap = document.querySelector('map');
 
@@ -62,6 +64,23 @@ map.on('click', async function(e) {
     };
 });
 
+function invalidValues(n) {
+  coordInput[n].classList.add('input-error');
+  coordInput[n].value = 'Invalid value!';
+  coordInput[n].onfocus = () => {
+    coordInput[n].classList.remove('input-error');
+    if(coordInput[n].value == 'Invalid value!') coordInput[n].value = '';
+  }
+}
+
+function emptyFields(input, n) {
+  input[n].classList.add('input-error');
+  input[n].value = 'Empty field!';
+  input[n].onfocus = () => {
+    input[n].classList.remove('input-error');
+    if(input[n].value == 'Empty field!') input[n].value = '';
+ }
+}
 
 //add fetch data handler
 
@@ -87,6 +106,41 @@ function dataHandler(json) {
   dataOutputs[5].value = uvi;
 
   mapUpdate(lat, lon, city);
+  dataParagraph.innerHTML= ``;
+  $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
+}
+
+//fetching data from city input
+async function getCityPollution(city) {
+  let response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
+  let result = await response.json();
+  if(response.status == 200 && result.status == 'ok') {
+    await dataHandler(result);
+    console.log(result);
+  } else if (result.status == 'error'){
+    console.log(`${result.status}: ${result.data}`);
+    setTimeout(() => {
+      dataParagraph.innerHTML = `Unfortunately we have no datas for ${city} station (incredible but true),
+                                insert coords to see datas from the nearest station or try with another city. Go check https://waqi.info/ to see`;
+      $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
+     }
+    , 50);
+  } else {
+    console.log(response.status);
+  }
+}
+
+// getting city input and call output function
+let getCity = document.querySelector('#getCity');
+getCity.onclick = async () => {
+  let city = cityInput.value;
+  if (!city) {
+    emptyFields(cityInput, 0);
+  } else {
+    await getCityPollution(city);
+    coordInput[0].value = '';
+    coordInput[1].value = '';
+  }
 }
 
 //fetching data from coords input
@@ -96,40 +150,10 @@ async function getCoordPollution (lat, lon) {
     let result = await response.json();
     cityInput.value = '';
     await dataHandler(result);
-
-    //alert(cityInput.value);
     console.log(result);
   } else {
-    console.log(`Error ${response.status}: ${response.message}`);
-  }
-}
-
-//fetching data from city input
-async function getCityPollution(city) {
-  let response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
-  let result = await response.json();
-  if(response.status == 200 && result.status == 'ok') {
-    dataHandler(result);
-    console.log(result);
-  } else if (result.status == 'error'){
-    console.log(`${result.status}: ${result.data}`);
-    coordInput[0].value = "";
-    coordInput[1].value = "";
-    setTimeout(() => alert(`Unfortunately we have no datas for ${city} station (incredible but true), insert coords to see datas from the nearest station or try with another city. Go check https://waqi.info/ to see`)
-    , 150);
-  } else {
-    console.log(response.status);
-  }
-}
-
-// getting city input and call output function
-let getCity = document.querySelector('#getCity');
-getCity.onclick = () => {
-  let city = cityInput.value;
-  if (city) {
-    getCityPollution(city);
-  } else {
-    alert('remember to handle this')
+    dataParagraph.innerHTML = `Error ${response.status}: ${response.message}`;
+    $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
   }
 }
 
@@ -152,10 +176,28 @@ getLocalCoords.onclick = async function getCoord(){
  navigator.geolocation.getCurrentPosition(success, error);
 }
 
-//data output from somewhere coords input
+//gets somewhere coords input and call output function
 let getSomewhereCoords = document.querySelector("#getSomewhereCoords");
 getSomewhereCoords.onclick = () => {
   let latitude = coordInput[0].value;
   let longitude = coordInput[1].value;
-  getCoordPollution(latitude, longitude);
+  if(!latitude || !longitude) {
+    if(!latitude && !longitude) {
+      emptyFields(coordInput, 0);
+      emptyFields(coordInput, 1);
+    } else if (!latitude){
+      emptyFields(coordInput, 0)
+    } else if (!longitude) {
+      emptyFields(coordInput, 1);
+    }
+  } else if ((+latitude > 90 || +latitude < -90) && (+longitude > 180 || +longitude < -180)) {
+    invalidValues(0);
+    invalidValues(1);
+  } else if (+longitude > 180 || +longitude < -180) {
+    invalidValues(1);
+  } else if (+latitude > 90 || +latitude < -90) {
+    invalidValues(0);
+  } else {
+    getCoordPollution(latitude, longitude);
+  }
 }

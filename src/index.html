@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name='viewport'
+      content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link
@@ -12,7 +14,9 @@
     <div id="wrapper">
       <header class="page-header">
         <h1>Pollution Forecast</h1>
-        <p class="desc">Insert a city, your coords or somewhere you want coords to get pollution datas!</p>
+        <p class="desc">Insert a city or coordinates and click on the buttons to get pollution datas!
+        Click on "My coords" button to get your position and pollution datas from the nearest station!
+        Click anywhere on the map to get pollution datas from the nearest station!</p>
       </header>
       <form id="input-form">
         <label for="latitude">City latitude</label>
@@ -29,13 +33,15 @@
       <div class="city-button-cont">
         <button type="button" name="button" id="getCity">City infos</button>
       </div>
+      <h2>Map and datas!</h2>
       <map></map>
+      <p id="data-description"></p>
       <form id="output-form">
         <label for="station">Nearest station: </label>
         <input type="text" name="station" value="">
         <label for="station-coords">Nearest station coords: </label>
         <input type="text" name="station-coords" value="">
-        <label for="PM25">PM25 value: </label>
+        <label for="PM25">PM2.5 value: </label>
         <input type="text" name="PM25" value="">
         <label for="PM10">PM10 value: </label>
         <input type="text" name="PM10" value="">

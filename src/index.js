@@ -137,7 +137,7 @@ function dataHandler(json) {
 
 //fetching data from city input
 async function getCityPollution(city) {
-  let response = await fetch("/.netlify/functions/lambda");
+  let response = await fetch("./netlify/functions/lambda");
   let result = await response.json();
   if(response.status == 200 && result.status == 'ok') {
     await dataHandler(result);

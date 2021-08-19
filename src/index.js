@@ -171,7 +171,7 @@ getCity.onclick = async () => {
 
 //fetching data from coords input
 async function getCoordPollution (lat, lon) {
-  let response = await fetch("./netlify/functions/omega");
+  let response = await fetch("/.netlify/functions/omega");
   if(response.status == 200){
     let result = await response.json();
     cityInput.value = '';

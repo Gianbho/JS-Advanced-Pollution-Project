@@ -86,17 +86,17 @@ function removeErrorClass(input){
 
 function createDescriptionPara(aqi) {
   if(+aqi <= 50) {
-    dataParagraph.innerHTML = `Air quality is satisfactory, and air pollution poses little or no risk.`
+    dataParagraph.innerHTML = `<span style="color: #54E346;">Air quality is satisfactory</span>, and air pollution poses little or <span style="color: #54E346;">no risk.</span>`
   } else if (+aqi > 50 && +aqi <= 100){
-    dataParagraph.innerHTML = `Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.`
+    dataParagraph.innerHTML = `<span style="color: #FFF338;">Air quality is acceptable</span>. However, <span style="color: #FFF338;">there may be a risk</span> for some people, particularly those who are unusually sensitive to air pollution.`
   } else if (+aqi > 100 && +aqi <= 150) {
-    dataParagraph.innerHTML = `Members of sensitive groups may experience health effects. The general public is less likely to be affected.`
+    dataParagraph.innerHTML = `<span style="color: #FF7600;">Members of sensitive groups may experience health effects</span>. The general public is less likely to be affected.`
   } else if (+aqi > 150 && +aqi <= 200) {
-    dataParagraph.innerHTML = `Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.`
+    dataParagraph.innerHTML = `Some members of the <span style="color: #FA1E0E;">general public may experience health effects</span>; members of sensitive groups may experience more serious health effects.`
   } else if (+aqi > 200 && +aqi <= 300) {
-    dataParagraph.innerHTML = `Health alert: The risk of health effects is increased for everyone.`
+    dataParagraph.innerHTML = `Health alert: <span style="color: #FF67E7;">The risk of health effects is increased for everyone</span>.`
   } else if (+aqi > 300) {
-    dataParagraph.innerHTML = `Health warning of emergency conditions: everyone is more likely to be affected.`
+    dataParagraph.innerHTML = `Health warning of emergency conditions: <span style="color: #7B113A;">everyone is more likely to be affected.</span>`
   }
 }
 

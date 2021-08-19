@@ -19,36 +19,36 @@
         Click anywhere on the map to get pollution datas from the nearest station!</p>
       </header>
       <form id="input-form">
-        <label for="latitude">City latitude</label>
-        <input id="latitude" type="text" name="latitude" value="">
-        <label for="longitude">City Longitude</label>
-        <input id="longitude" type="text" name="longitude" value="">
+        <label for="latitude" class="col-sm-2 col-form-label">City latitude</label>
+        <input id="latitude" class="form-control" type="text" name="latitude" value="">
+        <label for="longitude" class="col-sm-2 col-form-label">City Longitude</label>
+        <input id="longitude" class="form-control" type="text" name="longitude" value="">
         <span class="coord-buttons-container">
-          <button type="button" name="button" class="coord-buttons" id="getLocalCoords">My coords</button>
-          <button type="button" name="button" class="coord-buttons" id="getSomewhereCoords">Somewhere coords</button>
+          <button type="button" name="button" class="coord-buttons btn btn-lg btn-primary" id="getLocalCoords">My coords</button>
+          <button type="button" name="button" class="coord-buttons btn btn-lg btn-primary" id="getSomewhereCoords">Somewhere coords</button>
         </span>
         <label for="city-name">Station name or city</label>
-        <input id="city-selector" type="text" name="city-name" value="">
+        <input id="city-selector" class="form-control" type="text" name="city-name" value="">
       </form>
       <div class="city-button-cont">
-        <button type="button" name="button" id="getCity">City infos</button>
+        <button type="button" name="button" class ="btn btn-primary btn-lg" id="getCity">City infos</button>
       </div>
       <h2>Map and datas!</h2>
       <map></map>
       <p id="data-description"></p>
-      <form id="output-form">
-        <label for="station">Nearest station: </label>
-        <input type="text" name="station" value="">
-        <label for="station-coords">Nearest station coords: </label>
-        <input type="text" name="station-coords" value="">
-        <label for="PM25">PM2.5 value: </label>
-        <input type="text" name="PM25" value="">
-        <label for="PM10">PM10 value: </label>
-        <input type="text" name="PM10" value="">
-        <label for="AQI">Air Quality Index: </label>
-        <input type="text" name="AQI" value="">
-        <label for="UVI">Ultra Violet Index: </label>
-        <input type="text" name="UVI" value="">
+      <form id="output-form" class="form-group">
+        <label for="station" class="col-sm-2 col-form-label">Nearest station: </label>
+        <input type="text" name="station" value="" class="form-control" readonly>
+        <label for="station-coords" class="col-sm-2 col-form-label">Nearest station coords: </label>
+        <input type="text" name="station-coords" value="" class="form-control" readonly>
+        <label for="PM25" class="col-sm-2 col-form-label">PM2.5 value: </label>
+        <input type="text" name="PM25" value="" class="form-control" readonly>
+        <label for="PM10" class="col-sm-2 col-form-label">PM10 value: </label>
+        <input type="text" name="PM10" value="" class="form-control" readonly>
+        <label for="AQI" class="col-sm-2 col-form-label">Air Quality Index: </label>
+        <input type="text" name="AQI" value="" class="form-control" readonly>
+        <label for="UVI" class="col-sm-2 col-form-label">Ultra Violet Index: </label>
+        <input type="text" name="UVI" value="" class="form-control" readonly>
       </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

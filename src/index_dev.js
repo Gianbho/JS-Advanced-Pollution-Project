@@ -66,20 +66,38 @@ map.on('click', async function(e) {
 
 function invalidValues(input) {
   input.classList.add('input-error');
-  input.value = 'Invalid value!';
-  input.onfocus = () => {
-    input.classList.remove('input-error');
-    if(input.value == 'Invalid value!') input.value = '';
-  }
+  input.value = "";
+  input.placeholder = 'Invalid value!';
+  input.onfocus = () => removeErrorClass(input);
 }
 
 function emptyFields(input) {
   input.classList.add('input-error');
-  input.value = 'Empty field!';
-  input.onfocus = () => {
+  input.placeholder = 'Empty field!';
+  input.onfocus = () => removeErrorClass(input);
+}
+
+function removeErrorClass(input){
+  if(input.classList.contains('input-error')) {
     input.classList.remove('input-error');
-    if(input.value == 'Empty field!') input.value = '';
- }
+    input.placeholder = '';
+  }
+}
+
+function createDescriptionPara(aqi) {
+  if(+aqi <= 50) {
+    dataParagraph.innerHTML = `Air quality is satisfactory, and air pollution poses little or no risk.`
+  } else if (+aqi > 50 && +aqi <= 100){
+    dataParagraph.innerHTML = `Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.`
+  } else if (+aqi > 100 && +aqi <= 150) {
+    dataParagraph.innerHTML = `Members of sensitive groups may experience health effects. The general public is less likely to be affected.`
+  } else if (+aqi > 150 && +aqi <= 200) {
+    dataParagraph.innerHTML = `Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.`
+  } else if (+aqi > 200 && +aqi <= 300) {
+    dataParagraph.innerHTML = `Health alert: The risk of health effects is increased for everyone.`
+  } else if (+aqi > 300) {
+    dataParagraph.innerHTML = `Health warning of emergency conditions: everyone is more likely to be affected.`
+  }
 }
 
 //add fetch data handler
@@ -105,9 +123,16 @@ function dataHandler(json) {
   dataOutputs[4].value = aqi;
   dataOutputs[5].value = uvi;
 
+  dataParagraph.innerHTML = ``;
+
   mapUpdate(lat, lon, city);
   dataParagraph.innerHTML= ``;
   $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
+  removeErrorClass(coordInput[0]);
+  removeErrorClass(coordInput[1]);
+  removeErrorClass(cityInput);
+
+  createDescriptionPara(aqi);
 }
 
 //fetching data from city input
@@ -121,7 +146,8 @@ async function getCityPollution(city) {
     console.log(`${result.status}: ${result.data}`);
     setTimeout(() => {
       dataParagraph.innerHTML = `Unfortunately we have no datas for ${city} station (incredible but true),
-                                insert coords to see datas from the nearest station or try with another city. Go check https://waqi.info/ to see`;
+                                insert coords to check datas from the nearest station or try with another city.
+                                Go check <a href="https://waqi.info/">https://waqi.info/</a> to see our coverage`;
       $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
      }
     , 50);

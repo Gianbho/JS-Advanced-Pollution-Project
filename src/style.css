@@ -7,6 +7,9 @@ body {
   display: flex;
   width: 100%;
   justify-content: center;
+
+  background-color: #444941;
+  color: #D5EEBB;
 }
 
 #wrapper {
@@ -14,6 +17,9 @@ body {
   margin: 0 15px;
   width: 100%;
   flex-direction: column;
+}
+h1 {
+  color: #7FC8A9;
 }
 
 h2 {

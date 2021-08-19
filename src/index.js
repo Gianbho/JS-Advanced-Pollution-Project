@@ -22,7 +22,7 @@ L.Icon.Default.mergeOptions({
 
 let coordInput = document.getElementById('input-form').elements;
 let cityInput = document.getElementById('city-selector');
-module.exports = {cityInput};
+export = {cityInput};
 let dataOutputs = document.getElementById('output-form').elements;
 let dataParagraph = document.querySelector('#data-description');
 

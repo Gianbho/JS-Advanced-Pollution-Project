@@ -1,4 +1,4 @@
-const fetch = request('node-fetch').default;
+const fetch = require('node-fetch');
 
 exports.handler = async event => {
   const API_KEY =  process.env.API_KEY;

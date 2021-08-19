@@ -1,4 +1,3 @@
-import city from 'src/index.js'
 const fetch = require('node-fetch');
 
 exports.handler = async event => {

@@ -33,6 +33,7 @@
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
     "leaflet-loader": "^0.0.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1"
   }
 }

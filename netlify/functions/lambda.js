@@ -1,9 +1,9 @@
 const fetch = require('node-fetch');
-import {cityInput} from '../../src/index.js'
+
 exports.handler = async event => {
   const API_KEY =  process.env.API_KEY;
 
-  const response = await fetch(`https://api.waqi.info/feed/${cityInput.value}/?token=${API_KEY}`);
+  const response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
   const data = await response.json();
 
   const pass = (body) => {

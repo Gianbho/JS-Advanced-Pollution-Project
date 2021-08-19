@@ -1,4 +1,4 @@
-exports.handler = async function (city) => {
+exports.handler = async function (city) {
   const API_KEY =  process.env.API_KEY;
 
   const response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);

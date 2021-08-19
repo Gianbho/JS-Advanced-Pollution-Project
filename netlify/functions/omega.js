@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 exports.handler = async event => {
   const API_KEY =  process.env.API_KEY;
 
-  const response = await fetch(`https://api.waqi.info/feed/geo:40.85361;14.27167/?token=${API_KEY}`);
+  const response = await fetch(`https://api.waqi.info/feed/geo:${lat};${lon}/?token=${API_KEY}`);
   const data = await response.json();
 
   const pass = (body) => {

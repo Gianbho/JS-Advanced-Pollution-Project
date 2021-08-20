@@ -158,7 +158,7 @@ async function getCityPollution(city) {
 // getting city input and call output function
 let getCity = document.querySelector('#getCity');
 getCity.onclick = async () => {
-  city = cityInput.value;
+  let city = cityInput.value;
   if (!city) {
     emptyFields(cityInput);
   } else {

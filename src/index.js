@@ -160,12 +160,13 @@ async function getCityPollution(city) {
 let getCity = document.querySelector('#getCity');
 getCity.onclick = async () => {
   CITY = cityInput.value;
-  if (CITY == 0) {
+  if (!CITY) {
     emptyFields(cityInput);
   } else {
     await getCityPollution(CITY);
     coordInput[0].value = '';
     coordInput[1].value = '';
+    console.log(CITY)
   }
 }
 

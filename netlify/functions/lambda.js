@@ -2,7 +2,8 @@ const fetch = require('node-fetch');
 
 exports.handler = async event => {
   const API_KEY =  process.env.API_KEY;
-  const city = 'naples';
+  const querystring = event.queryStringParameters;
+  const city = querystring.city;
   let response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
   let data = await response.json();
 

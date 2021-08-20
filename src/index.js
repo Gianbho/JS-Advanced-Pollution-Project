@@ -55,7 +55,7 @@ map.on('click', async function(e) {
     let lat = e.latlng.lat;
     let lon = e.latlng.lng;
     console.log(lat, lon);
-    let response = await fetch(`/.netlify/functions/omega?lat=${lat};lon?=${lon}`);
+    let response = await fetch(`/.netlify/functions/omega?lat=${lat};?lon=${lon}`);
     if(response.status == 200) {
       let result = await response.json();
       dataHandler(result);
@@ -172,7 +172,7 @@ getCity.onclick = async () => {
 
 //fetching data from coords input
 async function getCoordPollution (lat, lon) {
-  let response = await fetch(`/.netlify/functions/omega?lat=${lat};lon?=${lon}`);
+  let response = await fetch(`/.netlify/functions/omega?lat=${lat}?lon=${lon}`);
   if(response.status == 200){
     let result = await response.json();
     cityInput.value = '';

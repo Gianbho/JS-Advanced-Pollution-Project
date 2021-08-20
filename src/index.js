@@ -55,7 +55,7 @@ map.on('click', async function(e) {
     let lat = e.latlng.lat;
     let lon = e.latlng.lng;
     console.log(lat, lon);
-    let response = await fetch("/.netlify/functions/omega");
+    let response = await fetch(`https://api.waqi.info/feed/geo:${lat};${lon}/?token=${API_KEY}`);
     if(response.status == 200) {
       let result = await response.json();
       dataHandler(result);
@@ -137,7 +137,7 @@ function dataHandler(json) {
 
 //fetching data from city input
 async function getCityPollution(city) {
-  let response = await fetch("/.netlify/functions/lambda");
+  let response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
   let result = await response.json();
   if(response.status == 200 && result.status == 'ok') {
     await dataHandler(result);
@@ -159,7 +159,7 @@ async function getCityPollution(city) {
 // getting city input and call output function
 let getCity = document.querySelector('#getCity');
 getCity.onclick = async () => {
-  city = cityInput.value;
+  let city = cityInput.value;
   if (!city) {
     emptyFields(cityInput);
   } else {
@@ -171,7 +171,7 @@ getCity.onclick = async () => {
 
 //fetching data from coords input
 async function getCoordPollution (lat, lon) {
-  let response = await fetch("/.netlify/functions/omega");
+  let response = await fetch(`https://api.waqi.info/feed/geo:${lat};${lon}/?token=${API_KEY}`);
   if(response.status == 200){
     let result = await response.json();
     cityInput.value = '';
@@ -190,6 +190,8 @@ getLocalCoords.onclick = async function getCoord(){
   let longitude;
   function success (pos) {
    let crd = pos.coords;
+   // coordInput[0].value = `${crd.latitude}`;
+   // coordInput[1].value = `${crd.longitude}`;
    latitude = crd.latitude;
    longitude = crd.longitude;
    getCoordPollution(latitude, longitude);

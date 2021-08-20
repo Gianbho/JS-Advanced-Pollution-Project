@@ -28,7 +28,7 @@ let dataParagraph = document.querySelector('#data-description');
 let city;
 let lat;
 let lon;
-export {city};
+module.exports {city};
 
 let leafletMap = document.querySelector('map');
 

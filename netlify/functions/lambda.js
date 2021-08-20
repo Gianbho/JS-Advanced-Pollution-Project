@@ -3,10 +3,10 @@ const fetch = require('node-fetch');
 //   let fetchy = await fetch('/.netlify/functions/giorgio');
 //       city = await fetchy.json();
 // }
-
+let city = process.env.CITY;
 exports.handler = async function (event) {
   const API_KEY =  process.env.API_KEY;
-  const response = await fetch(`https://api.waqi.info/feed/${process.env.CITY}/?token=${API_KEY}`);
+  const response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
   const data = await response.json();
   console.log(process.env.CITY);
 

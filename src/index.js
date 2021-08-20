@@ -25,11 +25,6 @@ let cityInput = document.getElementById('city-selector');
 let dataOutputs = document.getElementById('output-form').elements;
 let dataParagraph = document.querySelector('#data-description');
 
-let city;
-let lat;
-let lon;
-module.exports {city};
-
 let leafletMap = document.querySelector('map');
 
 

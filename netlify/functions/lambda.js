@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-import {city};
 // async function cityFetch() {
 //   let fetchy = await fetch('/.netlify/functions/giorgio');
 //       city = await fetchy.json();

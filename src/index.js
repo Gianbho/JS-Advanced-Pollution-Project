@@ -18,6 +18,7 @@ L.Icon.Default.mergeOptions({
     iconUrl: marker,
     shadowUrl: markerShadow
 });
+let CITY = process.env.CITY;
 
 let coordInput = document.getElementById('input-form').elements;
 let cityInput = document.getElementById('city-selector');
@@ -158,11 +159,11 @@ async function getCityPollution(city) {
 // getting city input and call output function
 let getCity = document.querySelector('#getCity');
 getCity.onclick = async () => {
-  let city = cityInput.value;
+  CITY = cityInput.value;
   if (!city) {
     emptyFields(cityInput);
   } else {
-    await getCityPollution(city);
+    await getCityPollution(CITY);
     coordInput[0].value = '';
     coordInput[1].value = '';
   }

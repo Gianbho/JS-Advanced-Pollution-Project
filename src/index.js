@@ -25,6 +25,10 @@ let cityInput = document.getElementById('city-selector');
 let dataOutputs = document.getElementById('output-form').elements;
 let dataParagraph = document.querySelector('#data-description');
 
+let city;
+let lat;
+let lon;
+
 let leafletMap = document.querySelector('map');
 
 
@@ -159,7 +163,7 @@ async function getCityPollution(city) {
 // getting city input and call output function
 let getCity = document.querySelector('#getCity');
 getCity.onclick = async () => {
-  let city = cityInput.value;
+  city = cityInput.value;
   if (!city) {
     emptyFields(cityInput);
   } else {

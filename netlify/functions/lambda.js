@@ -4,9 +4,11 @@ const fetch = require('node-fetch');
 //       city = await fetchy.json();
 // }
 
+let cityInput = document.getElementById('city-selector');
+
 exports.handler = async event => {
   const API_KEY =  process.env.API_KEY;
-
+  let city = cityInput.value;
   const response = await fetch(`https://api.waqi.info/feed/${city}/?token=${API_KEY}`);
   const data = await response.json();
 

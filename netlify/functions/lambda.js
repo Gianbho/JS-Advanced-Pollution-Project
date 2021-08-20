@@ -1,5 +1,9 @@
 const fetch = require('node-fetch');
-import city from '../../build/main.bundle.js'
+import {city};
+// async function cityFetch() {
+//   let fetchy = await fetch('/.netlify/functions/giorgio');
+//       city = await fetchy.json();
+// }
 
 exports.handler = async event => {
   const API_KEY =  process.env.API_KEY;

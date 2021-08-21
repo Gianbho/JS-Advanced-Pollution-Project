@@ -1,7 +1,6 @@
 # JS-Advanced-Pollution-Project for Start2Impact
 <p align="center">
   <a href="https://github.com/Gianbho/JS-Advanced-Pollution-Project">
-    <img src="dist/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">City Pollution Project</h3>

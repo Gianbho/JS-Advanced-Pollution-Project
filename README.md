@@ -35,7 +35,7 @@
 
 ## About The Project
 
-![Product Name Screen Shot](dist/screenshot.png)
+![Product Name Screen Shot]
 
 This is a a simple web app that fetches Air Quality Index data from [AQICN](aqicn.org) via their free [API](https://aqicn.org/api/) and displays it.
 

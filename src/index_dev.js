@@ -143,6 +143,13 @@ async function getCityPollution(city) {
     await dataHandler(result);
     console.log(result);
   } else if (result.status == 'error'){
+    dataOutputs[0].value = '';
+    dataOutputs[1].value = '';
+    dataOutputs[2].value = '';
+    dataOutputs[3].value = '';
+    dataOutputs[4].value = '';
+    dataOutputs[5].value = '';
+
     console.log(`${result.status}: ${result.data}`);
     setTimeout(() => {
       dataParagraph.innerHTML = `Unfortunately we have no datas for ${city} station (incredible but true),

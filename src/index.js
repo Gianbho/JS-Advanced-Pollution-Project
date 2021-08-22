@@ -18,7 +18,6 @@ L.Icon.Default.mergeOptions({
     iconUrl: marker,
     shadowUrl: markerShadow
 });
-let CITY = process.env.CITY;
 
 let coordInput = document.getElementById('input-form').elements;
 let cityInput = document.getElementById('city-selector');

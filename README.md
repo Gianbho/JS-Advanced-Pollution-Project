@@ -3,7 +3,7 @@
   <a href="https://github.com/Gianbho/JS-Advanced-Pollution-Project">
   </a>
 
-  <h3 align="center">City Pollution Project</h3>
+  <h3 align="center">Pollution Forecast Project GT</h3>
 
   <p align="center">
     Get AQI data for a location.
@@ -54,6 +54,7 @@ The API fetches data from the station that is nearest to the selected coordinate
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
+To try the app online follow the link [Pollution Forecast Project GT](https://laughing-payne-49d6f4.netlify.app/)
 
 ### Prerequisites
 

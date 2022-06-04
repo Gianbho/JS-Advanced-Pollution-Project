@@ -33,19 +33,23 @@
       <h2 class="fw-bold">Map and datas!</h2>
       <map></map>
       <p id="data-description" class="text-center fw-bold fst-italic"></p>
-      <form id="output-form" class="form-group">
-        <label for="station" class="col-sm-2 col-form-label">Nearest station: </label>
-        <input type="text" name="station" value="" class="form-control" readonly>
-        <label for="station-coords" class="col-sm-2 col-form-label">Nearest station coords: </label>
-        <input type="text" name="station-coords" value="" class="form-control" readonly>
-        <label for="PM25" class="col-sm-2 col-form-label">PM2.5 value: </label>
-        <input type="text" name="PM25" value="" class="form-control" readonly>
-        <label for="PM10" class="col-sm-2 col-form-label">PM10 value: </label>
-        <input type="text" name="PM10" value="" class="form-control" readonly>
-        <label for="AQI" class="col-sm-2 col-form-label">Air Quality Index: </label>
-        <input type="text" name="AQI" value="" class="form-control" readonly>
-        <label for="UVI" class="col-sm-2 col-form-label">Ultra Violet Index: </label>
-        <input type="text" name="UVI" value="" class="form-control" readonly>
+      <form id="output-form-container">
+        <div id="output-form" class="form-group">
+          <label for="station" class="col-sm-2 col-form-label">Nearest station: </label>
+          <input type="text" name="station" value="" class="form-control" readonly>
+          <label for="station-coords" class="col-sm-2 col-form-label">Nearest station coords: </label>
+          <input type="text" name="station-coords" value="" class="form-control" readonly>
+          <label for="PM25" class="col-sm-2 col-form-label">PM2.5 value: </label>
+          <input type="text" name="PM25" value="" class="form-control" readonly>
+        </div>
+        <div id="output-form" class="form-group">
+          <label for="PM10" class="col-sm-2 col-form-label">PM10 value: </label>
+          <input type="text" name="PM10" value="" class="form-control" readonly>
+          <label for="AQI" class="col-sm-2 col-form-label">Air Quality Index: </label>
+          <input type="text" name="AQI" value="" class="form-control" readonly>
+          <label for="UVI" class="col-sm-2 col-form-label">Ultra Violet Index: </label>
+          <input type="text" name="UVI" value="" class="form-control" readonly>
+        </div>
       </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

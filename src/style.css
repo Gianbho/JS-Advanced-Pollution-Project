@@ -96,7 +96,6 @@ button {
 #output-form-1 {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
   margin: 0 auto;
@@ -106,29 +105,10 @@ button {
 #output-form-2 {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
   margin: 0 auto;
   margin-bottom: 30px;
-}
-
-#output-form-1 label{
-  font-weight: bold;
-  position: relative;
-  right: -20px;
-  width: 8%;
-  margin-top: 20px;
-  margin-right: 5px;
-}
-
-#output-form-2 label{
-  font-weight: bold;
-  position: relative;
-  right: -20px;
-  width: 8%;
-  margin-top: 20px;
-  margin-right: 5px;
 }
 
 #output-form-1 input {

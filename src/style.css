@@ -98,6 +98,7 @@ button {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
   margin: 0 auto;
   margin-bottom: 30px;
 }
@@ -107,8 +108,17 @@ button {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
   margin: 0 auto;
   margin-bottom: 30px;
+}
+
+#output-form-1 label {
+  font-size: 11px;
+}
+
+#output-form-2 label {
+  font-size: 11px;
 }
 
 #output-form-1 input {

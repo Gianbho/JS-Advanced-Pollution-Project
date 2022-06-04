@@ -21,7 +21,8 @@ L.Icon.Default.mergeOptions({
 
 let coordInput = document.getElementById('input-form').elements;
 let cityInput = document.getElementById('city-selector');
-let dataOutputs = document.getElementById('output-form').elements;
+let dataOutputs1 = document.getElementById('output-form-1').elements;
+let dataOutputs2 = document.getElementById('output-form-2').elements;
 let dataParagraph = document.querySelector('#data-description');
 
 let leafletMap = document.querySelector('map');
@@ -115,12 +116,12 @@ function dataHandler(json) {
 
   coordInput[0].value = coords[0];
   coordInput[1].value = coords[1];
-  dataOutputs[0].value = city;
-  dataOutputs[1].value = `${coords[0]}, ${coords[1]}`;
-  dataOutputs[2].value = pm25;
-  dataOutputs[3].value = pm10;
-  dataOutputs[4].value = aqi;
-  dataOutputs[5].value = uvi;
+  dataOutputs1[0].value = city;
+  dataOutputs1[1].value = `${coords[0]}, ${coords[1]}`;
+  dataOutputs1[2].value = pm25;
+  dataOutputs2[0].value = pm10;
+  dataOutputs2[1].value = aqi;
+  dataOutputs2[2].value = uvi;
 
   dataParagraph.innerHTML = ``;
 
@@ -142,12 +143,12 @@ async function getCityPollution(city) {
     await dataHandler(result);
     console.log(result);
   } else if (result.status == 'error'){
-    dataOutputs[0].value = '';
-    dataOutputs[1].value = '';
-    dataOutputs[2].value = '';
-    dataOutputs[3].value = '';
-    dataOutputs[4].value = '';
-    dataOutputs[5].value = '';
+    dataOutputs1[0].value = '';
+    dataOutputs1[1].value = '';
+    dataOutputs1[2].value = '';
+    dataOutputs2[0].value = '';
+    dataOutputs2[1].value = '';
+    dataOutputs2[2].value = '';
     console.log(`${result.status}: ${result.data}`);
     setTimeout(() => {
       dataParagraph.innerHTML = `Unfortunately we have no datas for ${city} station (incredible but true),

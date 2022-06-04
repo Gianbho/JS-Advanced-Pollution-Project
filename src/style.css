@@ -140,7 +140,7 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     width: 75%;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 auto;
     margin-bottom: 30px;
   }

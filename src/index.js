@@ -114,17 +114,14 @@ function dataHandler(json) {
   const pm10 =_.get(json, "data.forecast.daily.pm10[0].avg")
   const uvi = _.get(json, "data.forecast.daily.uvi[0].max")
   
-  console.log(dataOutputs1[0]);
-  console.log(city);
-
   coordInput[0].value = coords[0];
   coordInput[1].value = coords[1];
-  dataOutputs1[0].value = city;
-  dataOutputs1[1].value = `${coords[0]}, ${coords[1]}`;
-  dataOutputs1[2].value = pm25;
-  dataOutputs2[0].value = pm10;
-  dataOutputs2[1].value = aqi;
-  dataOutputs2[2].value = uvi;
+  dataOutputs1[1].value = city;
+  dataOutputs1[3].value = `${coords[0]}, ${coords[1]}`;
+  dataOutputs1[5].value = pm25;
+  dataOutputs2[1].value = pm10;
+  dataOutputs2[3].value = aqi;
+  dataOutputs2[5].value = uvi;
 
   dataParagraph.innerHTML = ``;
 

@@ -96,6 +96,7 @@ button {
 #output-form-1 {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
   margin: 0 auto;
@@ -105,6 +106,7 @@ button {
 #output-form-2 {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
   margin: 0 auto;

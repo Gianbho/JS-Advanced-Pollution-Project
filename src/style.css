@@ -88,6 +88,11 @@ button {
   margin: 15px 0;
 }
 
+#output-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
 #output-form {
   display: flex;
   flex-direction: row;

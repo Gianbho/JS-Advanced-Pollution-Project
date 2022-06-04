@@ -114,11 +114,13 @@ button {
 }
 
 #output-form-1 label {
-  font-size: 11px;
+  font-size: 13px;
+  width:7%;
 }
 
 #output-form-2 label {
-  font-size: 11px;
+  font-size: 13px;
+  width:7%;
 }
 
 #output-form-1 input {

@@ -21,8 +21,8 @@ L.Icon.Default.mergeOptions({
 
 let coordInput = document.getElementById('input-form').elements;
 let cityInput = document.getElementById('city-selector');
-let dataOutputs1 = document.getElementById('output-form-1').elements;
-let dataOutputs2 = document.getElementById('output-form-2').elements;
+let dataOutputs1 = document.getElementById('output-form-1').children;
+let dataOutputs2 = document.getElementById('output-form-2').children;
 let dataParagraph = document.querySelector('#data-description');
 
 let leafletMap = document.querySelector('map');
